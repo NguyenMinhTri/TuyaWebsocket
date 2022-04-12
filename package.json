@@ -1,0 +1,57 @@
+{
+  "name": "message-subscription-websocket",
+  "version": "0.0.1",
+  "description": "tuya message subscription websocket",
+  "main": "./dist/index.js",
+  "scripts": {
+    "lint:ts": "eslint src --ext .ts --fix",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write .",
+    "prepare": "husky install",
+    "dev": "tsc -w",
+    "test": "npm run jest",
+    "jest": "jest",
+    "deploy:next": "npm version prerelease --preid=next && npm publish --tag next",
+    "deploy:beta": "npm version prerelease --preid=beta && npm publish --tag beta",
+    "deploy": "npm run patch && npm publish",
+    "prepublishOnly": "npm run test && npm run build",
+    "jest:cov": "jest --coverage",
+    "build": "rimraf ./build && tsc",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@registry.code.tuya-inc.top:10023/tuyafe-dev-platform/message-subscription-websocket.git"
+  },
+  "keywords": [
+    "tuya",
+    "message",
+    "subscription",
+    "websocket"
+  ],
+  "author": "xuyi",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/crypto-js": "^4.0.1",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.3.0",
+    "@types/ws": "^7.4.4",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.26.0",
+    "husky": "^6.0.0",
+    "jest": "^27.0.3",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "ts-jest": "^27.0.2",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "request": "^2.88.2",
+    "ws": "^7.4.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "prettier --write --ignore-unknown"
+  }
+}
