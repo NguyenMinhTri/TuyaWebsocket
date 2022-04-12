@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@registry.code.tuya-inc.top:10023/tuyafe-dev-platform/message-subscription-websocket.git"
+    "url": ""
   },
   "keywords": [
     "tuya",
